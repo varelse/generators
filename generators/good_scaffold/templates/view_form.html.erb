@@ -1,0 +1,8 @@
+<%%= f.error_messages %>
+
+<% for attribute in attributes -%>
+  <div>
+    <%%= f.label :<%= attribute.name %> %><br />
+    <%%= f.<%= attribute.field_type %> :<%= attribute.name %> %>
+  </div>
+<% end -%>
