@@ -1,27 +1,28 @@
-<h1>Listing <%= plural_name %></h1>
+<h1><%%= t('activerecord.models.plural.<%=plural_name%>') %></h1>
 
-<table>
-  <tr>
-<% for attribute in attributes -%>
-    <th><%= attribute.column.human_name %></th>
-<% end -%>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<table class="model-table <%=plural_name%>-table">
+  	<tr>
+		<%% scope = "activerecord.attributes.<%=singular_name%>" %>
+	<% for attribute in attributes -%>
+	<th><%%= t("<%=attribute.name%>", :scope => scope) %></th>
+	<% end -%>
+	<th class="action-column"></th>
+		<th class="action-column"></th>
+		<th class="action-column"></th>
+  	</tr>
 
-<%% @<%= plural_name %>.each do |<%= singular_name %>| %>
-  <tr>
-<% for attribute in attributes -%>
-    <td><%%=h <%= singular_name %>.<%= attribute.name %> %></td>
-<% end -%>
-    <td><%%= link_to 'Show', <%= singular_name %> %></td>
-    <td><%%= link_to 'Edit', edit_<%= singular_name %>_path(<%= singular_name %>) %></td>
-    <td><%%= link_to 'Destroy', <%= singular_name %>, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<%% end %>
+	<%% @<%= plural_name %>.each do |<%= singular_name %>| %>
+		<tr>
+	<% for attribute in attributes -%>
+	    <td><%%=h <%= singular_name %>.<%= attribute.name %> %></td>
+	<% end -%>
+		<td><%%= link_to t('buttons.show'), <%= singular_name %> %></td>
+			<td><%%= link_to t('buttons.edit'), edit_<%= singular_name %>_path(<%= singular_name %>) %></td>
+			<td><%%= link_to t('buttons.destroy'), <%= singular_name %>, :confirm => <%%=t('questions.are_you_sure')%>, :method => :delete %></td>
+	  	</tr>
+	<%% end %>
 </table>
 
 <br />
 
-<%%= link_to 'New <%= singular_name %>', new_<%= singular_name %>_path %>
+<%%= link_to t('buttons.new'), new_<%= singular_name %>_path %>

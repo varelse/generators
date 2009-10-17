@@ -1,12 +1,12 @@
-<h1>New <%= singular_name %></h1>
+<h1><%%= "#{t('actions.new')} #{t('activerecord.models.<%= singular_name %>')}"%></h1>
 
 <%% form_for(@<%= singular_name %>) do |f| %>
 
 	<%%= render 'form', :f => f %>
 
 	<div class="buttons">
-	    <%%= f.submit "Create" %> or 
-		<%%= link_to "Go back to list",  <%= plural_name %>_path %>
+	    <%%= f.submit t("buttons.create") %> <%%= t('or') %>
+		<%%= link_to t("buttons.back"),  <%= plural_name %>_path %>
 	</p>
 
 <%% end %>
