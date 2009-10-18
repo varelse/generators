@@ -2,7 +2,7 @@ class <%= controller_class_name %>Controller < ApplicationController
   
   # GET /<%= table_name %>
   def index
-    @<%= table_name %> = <%= class_name %>.all
+    @<%= table_name %> = <%= class_name %>.paginate
   end
 
   # GET /<%= table_name %>/1

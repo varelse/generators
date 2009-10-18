@@ -8,5 +8,5 @@
 
 <% end -%>
 
-<%%= link_to t('button.edit'), edit_<%= singular_name %>_path(@<%= singular_name %>) %> |
-<%%= link_to t('button.back'), <%= plural_name %>_path %>
+<%%= link_to t('buttons.edit'), edit_<%= singular_name %>_path(@<%= singular_name %>) %> <%%= t('common.or') %>
+<%%= link_to t('buttons.back'), <%= plural_name %>_path %>
